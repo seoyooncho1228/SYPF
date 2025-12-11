@@ -76,7 +76,7 @@ const projectData = {
             card.dataset.category = data.category;
             card.innerHTML = `
                 <div class="placeholder-box" data-id="${id}">
-                    ${data.detailImages[0] ? `<img src="${data.detailImages[0]}" alt="${data.title}">` : ""}
+                  ${data.mainImage ? `<img src="${data.mainImage}" alt="${data.title}">` : ""}
                 </div>
                 <p class="item-title">${data.title}</p>
                 <p class="item-subtitle">${data.subtitle}</p>
