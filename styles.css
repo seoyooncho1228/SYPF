@@ -86,7 +86,7 @@ body {
 
 /* 작품 이미지/상자 스타일 */
 .placeholder-box {
-    width: 200%;
+    width: 100%;
     aspect-ratio: 1 / 1; /* 정사각형 예시 */
     overflow: hidden;
 }
@@ -171,4 +171,75 @@ body {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+}
+
+.detail-page {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+        position: relative;
+
+    gap: 20px; /* 버튼과 컨텐츠 간 간격 */}
+    
+
+.detail-container {
+    display: flex;
+    gap: 20px;           /* 버튼과 내용 사이 간격 */
+    align-items: flex-start; /* 버튼이 늘어나지 않도록 */
+}
+
+.back-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: #000000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 상세 컨텐츠 */
+.detail-content {
+    display: flex;
+    gap: 40px; /* 왼쪽 이미지와 오른쪽 텍스트 간격 */
+}
+
+/* 왼쪽 이미지 */
+.detail-content .left img {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 오른쪽 텍스트 */
+.detail-content .right {
+    flex: 1;
+}
+
+.detail-content .right h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.detail-content .right h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.detail-content .right p {
+    margin-bottom: 20px;
+}
+
+.detail-content .right .detail-images img {
+    width: 100%;
+    margin-bottom: 20px;
 }

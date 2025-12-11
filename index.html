@@ -15,7 +15,8 @@
 
     <nav class="categories-nav">
         <ul>
-            <li><a href="#" class="active" data-category="branding">BRANDING</a></li>
+            <li><a href="#" class="active" data-category="all">ALL</a></li>
+            <li><a href="#" data-category="branding">BRANDING</a></li>
             <li><a href="#" data-category="graphic">GRAPHIC</a></li>
             <li><a href="#" data-category="movie">MOVIE</a></li>
             <li><a href="#" data-category="uxui">UXUI</a></li>
@@ -26,71 +27,76 @@
 
 <main>
 
-    <!-- BRANDING -->
-    <section class="content-block" id="branding">
+    <!-- ALL: 전체 콘텐츠는 여기만 수정하면 됨 -->
+    <section class="content-block" id="all">
         <div class="portfolio-grid">
-            <!-- 5개 더미 -->
-            <div class="grid-item">
-                <div class="placeholder-box" data-id="branding01"></div><p class="item-title">작품 제목 01</p><p class="item-subtitle">간단 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">작품 제목 02</p><p class="item-subtitle">간단 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">작품 제목 03</p><p class="item-subtitle">간단 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">작품 제목 04</p><p class="item-subtitle">간단 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">작품 제목 05</p><p class="item-subtitle">간단 설명</p></div>
-        </div>
-    </section>
+<!-- BRANDING -->
+<div class="grid-item" data-category="branding">
+    <div class="placeholder-box" data-id="branding01"></div>
+    <p class="item-title">작품 제목 01</p>
+    <p class="item-subtitle">간단 설명</p>
+</div>
 
-    <!-- GRAPHIC -->
-    <section class="content-block" id="graphic" style="display:none;">
-        <div class="portfolio-grid">
-<div class="grid-item">
-    <div class="placeholder-box">
-        <img src="assets/graphics/graphic01_1.png" alt="GRAPHIC 01 이미지">
+<div class="grid-item" data-category="branding">
+    <div class="placeholder-box" data-id="branding02"></div>
+    <p class="item-title">작품 제목 02</p>
+    <p class="item-subtitle">간단 설명</p>
+</div>
+
+<div class="grid-item" data-category="branding">
+    <div class="placeholder-box" data-id="branding03"></div>
+    <p class="item-title">작품 제목 03</p>
+    <p class="item-subtitle">간단 설명</p>
+</div>
+
+<!-- GRAPHIC -->
+<div class="grid-item" data-category="graphic">
+    <div class="placeholder-box" data-id="graphic01">
+        <img src="assets/graphics/graphic01_1.png" alt="GRAPHIC 01">
     </div>
-    <p class="item-title">GRAPHIC 01</p>
+    <p class="item-title">Digital Panopticon</p>
+    <p class="item-subtitle">덕성여대 졸업전시</p>
+</div>
+
+<div class="grid-item" data-category="graphic">
+    <div class="placeholder-box" data-id="graphic02">
+        <img src="assets/graphics/graphic01_2.png" alt="GRAPHIC 02">
+    </div>
+    <p class="item-title">GRAPHIC 02</p>
     <p class="item-subtitle">그래픽 설명</p>
 </div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">GRAPHIC 02</p><p class="item-subtitle">그래픽 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">GRAPHIC 03</p><p class="item-subtitle">그래픽 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">GRAPHIC 04</p><p class="item-subtitle">그래픽 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">GRAPHIC 05</p><p class="item-subtitle">그래픽 설명</p></div>
-        </div>
-    </section>
 
-    <!-- MOVIE -->
-    <section class="content-block" id="movie" style="display:none;">
-        <div class="portfolio-grid">
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">MOVIE 01</p><p class="item-subtitle">무비 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">MOVIE 02</p><p class="item-subtitle">무비 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">MOVIE 03</p><p class="item-subtitle">무비 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">MOVIE 04</p><p class="item-subtitle">무비 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">MOVIE 05</p><p class="item-subtitle">무비 설명</p></div>
+<!-- MOVIE -->
+<div class="grid-item" data-category="movie">
+    <div class="placeholder-box" data-id="movie01"></div>
+    <p class="item-title">MOVIE 01</p>
+    <p class="item-subtitle">무비 설명</p>
+</div>
 
-        </div>
-    </section>
+<!-- UXUI -->
+<div class="grid-item" data-category="uxui">
+    <div class="placeholder-box" data-id="uxui01"></div>
+    <p class="item-title">UXUI 01</p>
+    <p class="item-subtitle">UXUI 설명</p>
+</div>
 
-    <!-- UXUI -->
-    <section class="content-block" id="uxui" style="display:none;">
-        <div class="portfolio-grid">
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">UXUI 01</p><p class="item-subtitle">UXUI 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">UXUI 02</p><p class="item-subtitle">UXUI 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">UXUI 03</p><p class="item-subtitle">UXUI 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">UXUI 04</p><p class="item-subtitle">UXUI 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">UXUI 05</p><p class="item-subtitle">UXUI 설명</p></div>
+<!-- ETC -->
+<div class="grid-item" data-category="etc">
+    <div class="placeholder-box" data-id="etc01"></div>
+    <p class="item-title">ETC 01</p>
+    <p class="item-subtitle">기타 설명</p>
+</div>
+
 
         </div>
     </section>
 
-    <!-- ETC -->
-    <section class="content-block" id="etc" style="display:none;">
-        <div class="portfolio-grid">
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">ETC 01</p><p class="item-subtitle">기타 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">ETC 02</p><p class="item-subtitle">기타 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">ETC 03</p><p class="item-subtitle">기타 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">ETC 04</p><p class="item-subtitle">기타 설명</p></div>
-            <div class="grid-item"><div class="placeholder-box"></div><p class="item-title">ETC 05</p><p class="item-subtitle">기타 설명</p></div>
-
-        </div>
-    </section>
+    <!-- 다른 카테고리 섹션은 비워둔다 -->
+    <section class="content-block" id="branding" style="display:none;"></section>
+    <section class="content-block" id="graphic" style="display:none;"></section>
+    <section class="content-block" id="movie" style="display:none;"></section>
+    <section class="content-block" id="uxui" style="display:none;"></section>
+    <section class="content-block" id="etc" style="display:none;"></section>
 
 </main>
 
