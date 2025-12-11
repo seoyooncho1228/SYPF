@@ -1,0 +1,245 @@
+/* 기본 스타일 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* 배경색 */
+    color: #333;
+    padding: 40px; /* 전체 여백 */
+}
+
+/* === 헤더 스타일 === */
+.main-header {
+    margin-bottom: 200px;
+}
+
+.logo .logo-box {
+    background-color: #00ff00; /* 초록색 박스 */
+    color: #000;
+    font-size: 200px;
+    font-weight: bold;
+    padding: 5px 15px;
+    display: inline-block;
+    margin-bottom: 100px;
+}
+
+.categories-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;                 /* 줄바꿈 허용 */
+    justify-content: space-evenly;   /* 전체 폭을 균등하게 채움 */
+    width: 100%;                     /* 전체 너비 사용 */
+    padding-left: 0;
+    margin-bottom: 30px;
+    gap: 10px 20px;                  /* 줄 간격 */
+}
+
+
+.categories-nav li {
+/* 이 큰 고정 마진을 제거합니다. */
+ margin-right: 0; 
+}
+
+/* 창 크기가 줄어들 때 카테고리가 겹치지 않도록 flex-wrap을 적용할 수도 있습니다. */
+@media (max-width: 575px) {
+    .categories-nav ul {
+        /* 항목이 한 줄에 다 들어가지 않으면 다음 줄로 넘어가도록 함 */
+        flex-wrap: wrap; 
+        /* 필요하다면 간격 조정 */
+        gap: 10px 20px; /* 세로 10px, 가로 20px 간격 */
+    }
+}
+
+.categories-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.categories-nav a:hover,
+.categories-nav a.active {
+    color: #d1240a;
+}
+
+/* === 포트폴리오 그리드 스타일 === */
+.portfolio-grid {
+    display: grid;
+    /* 기본적으로 데스크톱에서 5열로 설정 */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 30px; /* 그리드 항목 사이의 간격 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 작품 이미지/상자 스타일 */
+.placeholder-box {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 정사각형 예시 */
+    overflow: hidden;
+}
+
+.placeholder-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 꽉 채우는 방식 */
+    display: block;
+}
+
+
+/* 초록색 바 스타일 (첫 번째 줄 작품 아래) */
+.green-bars {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* 바 사이의 간격 */
+}
+
+.green-bars .bar {
+    width: 80%;
+    height: 10px;
+    background-color: #00ff00;
+}
+
+/* 두 번째 줄 작품 상자 스타일 조정 (그림의 아래쪽 박스) */
+.grid-item.bottom-row .placeholder-box {
+    padding-bottom: 75%; /* 동일한 비율 유지 */
+    margin-top: -30px; /* 초록색 바와 겹치게 위로 올림 */
+    z-index: 1; /* 위에 표시되도록 */
+    position: relative;
+    background-color: #fcfcfc;
+}
+
+/* === 반응형 디자인 (Media Queries) === */
+
+/* 태블릿 크기 (768px 이상) */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        /* 4열로 변경 */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 작은 태블릿 및 모바일 가로 (576px 이상) */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        /* 3열로 변경 */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .categories-nav li {
+        margin-right: 30px;
+    }
+}
+
+/* 모바일 크기 (575px 이하) */
+@media (max-width: 575px) {
+    body {
+        padding: 20px;
+    }
+
+    .logo .logo-box {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .categories-nav ul {
+        /* 세로 배열로 변경하여 스크롤 가능하게 */
+        flex-wrap: wrap; 
+    }
+
+    .categories-nav li {
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+    .portfolio-grid {
+        /* 2열로 변경 */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+.detail-page {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+        position: relative;
+
+    gap: 20px; /* 버튼과 컨텐츠 간 간격 */}
+    
+
+.detail-container {
+    display: flex;
+    gap: 20px;           /* 버튼과 내용 사이 간격 */
+    align-items: flex-start; /* 버튼이 늘어나지 않도록 */
+}
+
+.back-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: #000000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 상세 컨텐츠 */
+.detail-content {
+    display: flex;
+    gap: 40px; /* 왼쪽 이미지와 오른쪽 텍스트 간격 */
+}
+
+/* 왼쪽 이미지 */
+.detail-content .left img {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 오른쪽 텍스트 */
+.detail-content .right {
+    flex: 1;
+}
+
+.detail-content .right h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.detail-content .right h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.detail-content .right p {
+    margin-bottom: 20px;
+}
+
+.detail-content .right .detail-images img {
+    width: 100%;
+    margin-bottom: 20px;
+}
