@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>鳥ortfolio</title>
     <link rel="stylesheet" href="styles.css">
+ <!-- Pretendard CDN --><link href="https://cdn.jsdelivr.net/npm/@fontsource/pretendard/400.css" rel="stylesheet">
+
 </head>
 <body>
 
 <header class="main-header">
+    <div class="vertical-line"></div>
+<div class="horizontal-line"></div>
     <div class="logo">
-        <span class="logo-box">image</span>
+        <span class="logo-box">鳥</span>
     </div>
 
     <nav class="categories-nav">
@@ -26,81 +30,9 @@
 </header>
 
 <main>
-
-    <!-- ALL: 전체 콘텐츠는 여기만 수정하면 됨 -->
-    <section class="content-block" id="all">
-        <div class="portfolio-grid">
-<!-- BRANDING -->
-<div class="grid-item" data-category="branding">
-    <div class="placeholder-box" data-id="branding01"></div>
-    <p class="item-title">작품 제목 01</p>
-    <p class="item-subtitle">간단 설명</p>
-</div>
-
-<div class="grid-item" data-category="branding">
-    <div class="placeholder-box" data-id="branding02"></div>
-    <p class="item-title">작품 제목 02</p>
-    <p class="item-subtitle">간단 설명</p>
-</div>
-
-<div class="grid-item" data-category="branding">
-    <div class="placeholder-box" data-id="branding03"></div>
-    <p class="item-title">작품 제목 03</p>
-    <p class="item-subtitle">간단 설명</p>
-</div>
-
-<!-- GRAPHIC -->
-<div class="grid-item" data-category="graphic">
-    <div class="placeholder-box" data-id="graphic01">
-        <img src="assets/graphics/graphic01_1.png" alt="GRAPHIC 01">
-    </div>
-    <p class="item-title">Digital Panopticon</p>
-    <p class="item-subtitle">덕성여대 졸업전시</p>
-</div>
-
-<div class="grid-item" data-category="graphic">
-    <div class="placeholder-box" data-id="graphic02">
-        <img src="assets/graphics/graphic01_2.png" alt="GRAPHIC 02">
-    </div>
-    <p class="item-title">GRAPHIC 02</p>
-    <p class="item-subtitle">그래픽 설명</p>
-</div>
-
-<!-- MOVIE -->
-<div class="grid-item" data-category="movie">
-    <div class="placeholder-box" data-id="movie01"></div>
-    <p class="item-title">MOVIE 01</p>
-    <p class="item-subtitle">무비 설명</p>
-</div>
-
-<!-- UXUI -->
-<div class="grid-item" data-category="uxui">
-    <div class="placeholder-box" data-id="uxui01"></div>
-    <p class="item-title">UXUI 01</p>
-    <p class="item-subtitle">UXUI 설명</p>
-</div>
-
-<!-- ETC -->
-<div class="grid-item" data-category="etc">
-    <div class="placeholder-box" data-id="etc01"></div>
-    <p class="item-title">ETC 01</p>
-    <p class="item-subtitle">기타 설명</p>
-</div>
-
-
-        </div>
-    </section>
-
-    <!-- 다른 카테고리 섹션은 비워둔다 -->
-    <section class="content-block" id="branding" style="display:none;"></section>
-    <section class="content-block" id="graphic" style="display:none;"></section>
-    <section class="content-block" id="movie" style="display:none;"></section>
-    <section class="content-block" id="uxui" style="display:none;"></section>
-    <section class="content-block" id="etc" style="display:none;"></section>
-
+    <section class="content-block" id="content"></section>
 </main>
 
 <script src="main.js"></script>
-
 </body>
 </html>

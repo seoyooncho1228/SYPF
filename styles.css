@@ -1,57 +1,112 @@
-/* 기본 스타일 초기화 */
+/* ======================== */
+/* === 기본 스타일 초기화 === */
+/* ======================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    cursor: none !important; /* 기존 마우스 숨기기 */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* 배경색 */
-    color: #333;
-    padding: 40px; /* 전체 여백 */
+/* 한글용 Pretendard Regular */
+body, p, h1, h2, h3, h4, h5, h6 {
+    font-family: "Pretendard", "Helvetica";
+    font-weight: 900; /* Regular */
 }
 
-/* === 헤더 스타일 === */
+/* ======================== */
+/* === MOUSE / 커서 === */
+/* ======================== */
+.vertical-line, 
+.horizontal-line {
+    position: fixed;
+    background-color: rgba(143, 143, 143, 0.3);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.horizontal-line {
+    height: 1px;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.custom-cursor::before,
+.custom-cursor::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+}
+
+.custom-cursor::before { /* 가로선 */
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: translateY(-50%);
+}
+
+.custom-cursor::after { /* 세로선 */
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+.custom-cursor.rotate {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* 텍스트 선택 색상 */
+::selection {
+    background-color: #04d63c;
+    color: #f2ff00;
+}
+
+/* ======================== */
+/* === 헤더 / 네비게이션 === */
+/* ======================== */
 .main-header {
-    margin-bottom: 200px;
+    margin-bottom: 50px;
 }
 
 .logo .logo-box {
-    background-color: #00ff00; /* 초록색 박스 */
+    background-color: #00ff00;
     color: #000;
     font-size: 200px;
     font-weight: bold;
     padding: 5px 15px;
     display: inline-block;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
 }
 
 .categories-nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;                 /* 줄바꿈 허용 */
-    justify-content: space-evenly;   /* 전체 폭을 균등하게 채움 */
-    width: 100%;                     /* 전체 너비 사용 */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
     padding-left: 0;
     margin-bottom: 30px;
-    gap: 10px 20px;                  /* 줄 간격 */
-}
-
-
-.categories-nav li {
-/* 이 큰 고정 마진을 제거합니다. */
- margin-right: 0; 
-}
-
-/* 창 크기가 줄어들 때 카테고리가 겹치지 않도록 flex-wrap을 적용할 수도 있습니다. */
-@media (max-width: 575px) {
-    .categories-nav ul {
-        /* 항목이 한 줄에 다 들어가지 않으면 다음 줄로 넘어가도록 함 */
-        flex-wrap: wrap; 
-        /* 필요하다면 간격 조정 */
-        gap: 10px 20px; /* 세로 10px, 가로 20px 간격 */
-    }
 }
 
 .categories-nav a {
@@ -67,179 +122,155 @@ body {
     color: #d1240a;
 }
 
-/* === 포트폴리오 그리드 스타일 === */
+/* ======================== */
+/* === 포트폴리오 그리드 === */
+/* ======================== */
 .portfolio-grid {
     display: grid;
-    /* 기본적으로 데스크톱에서 5열로 설정 */
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 30px; /* 그리드 항목 사이의 간격 */
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .grid-item {
-    background-color: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
-/* 작품 이미지/상자 스타일 */
 .placeholder-box {
     width: 100%;
-    aspect-ratio: 1 / 1; /* 정사각형 예시 */
+    aspect-ratio: 1 / 1;
     overflow: hidden;
+    background-color: #fcfcfc;
 }
 
 .placeholder-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 꽉 채우는 방식 */
+    object-fit: cover;
     display: block;
 }
 
-
-/* 초록색 바 스타일 (첫 번째 줄 작품 아래) */
-.green-bars {
-    width: 100%;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px; /* 바 사이의 간격 */
+.item-title {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
 }
 
-.green-bars .bar {
-    width: 80%;
-    height: 10px;
-    background-color: #00ff00;
+.item-subtitle {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
 }
 
-/* 두 번째 줄 작품 상자 스타일 조정 (그림의 아래쪽 박스) */
-.grid-item.bottom-row .placeholder-box {
-    padding-bottom: 75%; /* 동일한 비율 유지 */
-    margin-top: -30px; /* 초록색 바와 겹치게 위로 올림 */
-    z-index: 1; /* 위에 표시되도록 */
-    position: relative;
-    background-color: #fcfcfc;
-}
-
-/* === 반응형 디자인 (Media Queries) === */
-
-/* 태블릿 크기 (768px 이상) */
-@media (max-width: 1200px) {
-    .portfolio-grid {
-        /* 4열로 변경 */
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* 작은 태블릿 및 모바일 가로 (576px 이상) */
-@media (max-width: 992px) {
-    .portfolio-grid {
-        /* 3열로 변경 */
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .categories-nav li {
-        margin-right: 30px;
-    }
-}
-
-/* 모바일 크기 (575px 이하) */
-@media (max-width: 575px) {
-    body {
-        padding: 20px;
-    }
-
-    .logo .logo-box {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .categories-nav ul {
-        /* 세로 배열로 변경하여 스크롤 가능하게 */
-        flex-wrap: wrap; 
-    }
-
-    .categories-nav li {
-        margin-right: 20px;
-        margin-bottom: 10px;
-    }
-
-    .portfolio-grid {
-        /* 2열로 변경 */
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-
+/* ======================== */
+/* === 상세페이지 / 컨테이너 === */
+/* ======================== */
 .detail-page {
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-        position: relative;
+    gap: 20px;
+    position: relative;
+}
 
-    gap: 20px; /* 버튼과 컨텐츠 간 간격 */}
-    
-
+/* detail-container: left/right 비율 적용 */
 .detail-container {
     display: flex;
-    gap: 20px;           /* 버튼과 내용 사이 간격 */
-    align-items: flex-start; /* 버튼이 늘어나지 않도록 */
+    gap: 30px;
+    align-items: flex-start;
 }
 
-.back-btn {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    background: #000000;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+.detail-container .left {
+    flex: 0 0 40%; /* 데스크탑 40% */
 }
 
-/* 상세 컨텐츠 */
-.detail-content {
-    display: flex;
-    gap: 40px; /* 왼쪽 이미지와 오른쪽 텍스트 간격 */
-}
-
-/* 왼쪽 이미지 */
-.detail-content .left img {
-    width: 400px;
+.detail-container .left img {
+    width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-/* 오른쪽 텍스트 */
-.detail-content .right {
-    flex: 1;
+.detail-container .right {
+    flex: 0 0 60%; /* 데스크탑 60% */
 }
 
-.detail-content .right h2 {
-    font-size: 32px;
+.detail-container .right h2 {
+    font-size: 40px;
     margin-bottom: 10px;
 }
 
-.detail-content .right h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
+.detail-container .right h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
     color: #666;
 }
 
-.detail-content .right p {
-    margin-bottom: 20px;
+.detail-container .right p {
+    margin-bottom: 15px;
 }
 
-.detail-content .right .detail-images img {
-    width: 100%;
-    margin-bottom: 20px;
+/* detail-images 컨테이너 */
+.detail-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.detail-images img {
+    flex: 1 1 calc(33.333% - 0px);
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* ======================== */
+/* === 반응형 === */
+/* ======================== */
+
+/* 데스크탑 ~ 태블릿 (992px ~ 1200px) */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 작은 태블릿 (768px ~ 992px) */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .detail-container .left { flex: 0 0 45%; }
+    .detail-container .right { flex: 0 0 55%; }
+}
+
+/* 모바일 (768px 미만) */
+@media (max-width: 767px) {
+    body { padding: 20px; }
+    .logo .logo-box { font-size: 60px; margin-bottom: 20px; }
+    .categories-nav ul { gap: 10px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .detail-container { flex-direction: column; gap: 15px; }
+    .detail-container .left,
+    .detail-container .right { flex: 0 0 100%; }
+    .detail-container .right h2 { font-size: 24px; }
+    .detail-container .right h3 { font-size: 18px; }
+}
+
+/* 초소형 모바일 (<480px) */
+@media (max-width: 480px) {
+    .portfolio-grid { grid-template-columns: 1fr; gap: 10px; }
+    .detail-container { gap: 10px; }
+    .detail-container .right h2 { font-size: 20px; }
+    .detail-container .right h3 { font-size: 14px; }
 }
